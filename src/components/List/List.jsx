@@ -1,18 +1,18 @@
 import ListItem from "./ListItem";
-export const List = ({ activities }) => {
+export const List = ({ activities, onDeleteActivity }) => {
   return (
     <ul className="list__item-ul">
       {activities.map(({ id, name }) => {
         return (
           <ListItem key={id}>
             {name}
-            {/* <button
+            <button
               className="delete-button"
               onClick={() => onDeleteActivity(id)}
             >
               {" "}
               &#x2717;
-            </button> */}
+            </button>
           </ListItem>
         );
       })}
