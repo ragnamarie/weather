@@ -1,4 +1,4 @@
-export function Form({ onAddActivity }) {
+export function Form({ onAddActivity, id }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -9,6 +9,7 @@ export function Form({ onAddActivity }) {
 
     // Create the data object
     const data = {
+      id: id,
       name,
       isForGoodWeather,
     };
