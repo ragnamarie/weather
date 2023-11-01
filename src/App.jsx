@@ -46,11 +46,12 @@ export function App() {
       }
     }
     fetchWeather();
-    // const timer = setInterval(fetchWeather, 5000);
+    const timer = setInterval(fetchWeather, 5000);
 
-    // return () => {
-    //   clearInterval(timer);
-    // };
+    return () => {
+      clearInterval(timer);
+      fetchWeather();
+    };
   }, []);
 
   if (!weather) {
