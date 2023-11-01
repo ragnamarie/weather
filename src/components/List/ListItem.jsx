@@ -1,6 +1,6 @@
 import { children } from "react";
 
-const ListItem = ({ children }) => {
+export const ListItem = ({ children }) => {
   return <li className="list__item">{children}</li>;
 };
 

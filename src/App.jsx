@@ -1,11 +1,18 @@
 import "./App.css";
 import { uid } from "uid";
 import { Form } from "./components/Form/Form.jsx";
-import { useEffect, useState } from "react";
-import { List } from "./components/List/List.jsx";
+import { List } from "./components/List/List";
+
+import { useState } from "react";
+import { useEffect } from "react";
+
+import useLocalStorageState from "use-local-storage-state";
 
 export function App() {
-  const [activities, setActivities] = useState([]); // Initialize with an empty array
+  const [activities, setActivities] = useLocalStorageState("activities", {
+    defaultValue: [],
+  }); // The second argument is the initial value
+
   function handleAddActivity(newActivity) {
     // Add a unique ID to the new activity
     newActivity.id = uid();
