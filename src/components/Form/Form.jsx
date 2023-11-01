@@ -1,3 +1,4 @@
+import "./Form.css";
 export function Form({ onAddActivity, id }) {
   function handleSubmit(event) {
     event.preventDefault();
@@ -26,12 +27,16 @@ export function Form({ onAddActivity, id }) {
       <h2 className="entry-form__title">Add new activity:</h2>
       <div className="entry-form__fields">
         <div className="entry-form__field">
-          <label htmlFor="motto">Name</label>
+          <label className="text" htmlFor="name">
+            Name
+          </label>
           <input type="text" name="name" id="name" />
         </div>
         <div className="entry-form__field">
+          <label className="checkbox" htmlFor="checkbox">
+            Good-weather activity
+          </label>
           <input type="checkbox" id="checkbox" name="checkbox" />
-          <label htmlFor="checkbox">Good-weather activity</label>
         </div>
         <div className="entry-form__button-wrapper">
           <button type="submit">Submit</button>
