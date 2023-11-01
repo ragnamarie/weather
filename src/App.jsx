@@ -30,6 +30,7 @@ export function App() {
         if (response.ok) {
           const data = await response.json();
           setWeather(data);
+          console.log(data);
         } else {
           console.error("Failed!!");
         }
@@ -53,13 +54,18 @@ export function App() {
     );
   }
 
+  const isGoodWeather = weather.isGoodWeather;
+  const filteredActivities = activities.filter(
+    (activity) => activity.isForGoodWeather === isGoodWeather
+  );
+
   return (
     <>
       <h1 className="app-heading">
         <span>{weather.condition}</span>
         <span>{weather.temperature}&nbsp;&#8451;</span>
       </h1>
-      <List activities={activities} />
+      <List activities={filteredActivities} isGoodWeather={isGoodWeather} />
       <Form onAddActivity={handleAddActivity}></Form>
     </>
   );
