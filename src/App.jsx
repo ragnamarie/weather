@@ -1,7 +1,7 @@
 import "./App.css";
 import { uid } from "uid";
 import { Form } from "./components/Form/Form.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { List } from "./components/List/List.jsx";
 
 export function App() {
@@ -13,13 +13,45 @@ export function App() {
     setActivities([...activities, newActivity]);
   }
 
-  // const [activity, setActivity] = useState("");
-  // function handleAddActivity(newActivity) {
-  //   setActivity({ ...newActivity, id: uid() });
-  // }
+  const [weather, setWeather] = useState(null);
+  useEffect(() => {
+    async function fetchWeather() {
+      try {
+        const response = await fetch(
+          "https://example-apis.vercel.app/api/weather/europe"
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setWeather(data);
+        } else {
+          console.error("Failed!!");
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchWeather();
+    // const timer = setInterval(fetchWeather, 5000);
+
+    // return () => {
+    //   clearInterval(timer);
+    // };
+  }, []);
+
+  if (!weather) {
+    return (
+      <div className="app-loading">
+        <strong>Loading...</strong>
+      </div>
+    );
+  }
 
   return (
     <>
+      <h1 className="app-heading">
+        <span>{weather.condition}</span>
+        <span>{weather.temperature}&nbsp;&#8451;</span>
+      </h1>
       <List activities={activities} />
       <Form onAddActivity={handleAddActivity}></Form>
     </>
