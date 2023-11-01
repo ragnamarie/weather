@@ -20,6 +20,13 @@ export function App() {
     setActivities([...activities, newActivity]);
   }
 
+  function handleDeleteActivity(id) {
+    const updatedActivities = activities.filter(
+      (activity) => activity.id !== id
+    );
+    setActivities(updatedActivities);
+  }
+
   const [weather, setWeather] = useState(null);
   useEffect(() => {
     async function fetchWeather() {
@@ -61,11 +68,20 @@ export function App() {
 
   return (
     <>
+      <h2>
+        {weather.isGoodWeather
+          ? "The weather is awesome! Go outside and: "
+          : "Bad weather outside! Here is what you can do now:"}
+      </h2>
       <h1 className="app-heading">
         <span>{weather.condition}</span>
         <span>{weather.temperature}&nbsp;&#8451;</span>
       </h1>
-      <List activities={filteredActivities} isGoodWeather={isGoodWeather} />
+      <List
+        activities={filteredActivities}
+        isGoodWeather={isGoodWeather}
+        onDeleteActivity={handleDeleteActivity}
+      />
       <Form onAddActivity={handleAddActivity}></Form>
     </>
   );
