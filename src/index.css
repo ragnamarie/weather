@@ -2,7 +2,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  margin: 0 auto;
+  max-width: 645px;
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -18,7 +19,14 @@
   list-style-type: none;
   padding: 0;
 }
-
+html {
+  background: url(/public/pexels-photo-355747.jpeg) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -30,8 +38,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -39,6 +45,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: #ff6700;
+}
+h2 {
+  color: #ff6700;
 }
 
 button {
@@ -69,6 +79,6 @@ button:focus-visible {
     color: #747bff;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: #ff6700;
   }
 }
