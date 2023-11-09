@@ -81,6 +81,12 @@ button:focus-visible {
   button {
     background-color: #ff6700;
   }
+  #name {
+    background: transparent;
+  }
+  input[type="checkbox"] {
+    accent-color: #fb9047;
+  }
 }
 
 @media (prefers-color-scheme: light) {

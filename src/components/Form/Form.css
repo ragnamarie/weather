@@ -10,14 +10,14 @@
 
 .entry-form {
   background: white;
-  background-color: rgba(0, 0, 0, . 5);
+  background-color: rgba(0, 0, 0, 0 5);
   opacity: 0.7;
   padding: 20px;
 }
 
 .list__item {
   background: white;
-  background-color: rgba(0, 0, 0, . 5);
+  background-color: rgba(0, 0, 0, 0 5);
   opacity: 0.7;
   margin: 5px;
   padding: 5px;
